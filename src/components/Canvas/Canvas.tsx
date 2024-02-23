@@ -1,19 +1,18 @@
-/*import {useLayoutEffect, useRef, useState} from "react";*/
-// @ts-ignore
-/*import {drawRect} from "../../scripts/shape.js";*/
-// @ts-ignore
+import {useLayoutEffect, useRef, useState} from "react";
+import {drawRect} from '../../scripts/shape'
 import React from "react";
 
 export const Canvas = () => {
-    /*  const canvasRef = useRef<HTMLCanvasElement>(null)
+      const canvas = useRef<HTMLCanvasElement>(null)
 
-      const context = canvasRef.current!.getContext("2d");
       const [isDrawing, setIsDrawing] = useState(false)
       const [x, setX] = useState<number>(0)
       const [y, setY] = useState<number>(0)
-      const canvasOffset = canvasRef.current!.getBoundingClientRect();
-      const canvasX = Math.round(canvasOffset?.left); // Subtract the 'left' of the canvas
 
+    useLayoutEffect(() => {
+        const context = canvas.current!.getContext('2d')
+        const canvasOffset = canvas.current!.getBoundingClientRect();
+        const canvasX = Math.round(canvasOffset?.left); // Subtract the 'left' of the canvas
 
       // @ts-ignore
       const mouseDown = (e) => {
@@ -32,8 +31,7 @@ export const Canvas = () => {
           const newY = Math.round(e.clientY - canvasOffset?.top);
           const width = newX - x
           const height = newY - y
-
-          drawRect(context, x, y, width, height);
+          drawRect(context,x,y, width, height)
 
           setX(canvasX);
           setY(canvasX);
@@ -45,22 +43,22 @@ export const Canvas = () => {
           setIsDrawing(false);
       }
 
-      useLayoutEffect(() => {
+
 
           // @ts-ignore
-          canvasRef?.current.addEventListener('mousedown', mouseDown);
+        canvas!.current.addEventListener('mousedown', mouseDown);
           // @ts-ignore
-          canvasRef?.current.addEventListener('mousemove', mouseMove);
+        canvas!.current.addEventListener('mousemove', mouseMove);
           window.addEventListener("mouseup", mouseUp);
           return () => {
               // @ts-ignore
-              canvasRef?.current.removeEventListener('mousedown', mouseDown)
+              canvas!.current.removeEventListener('mousedown', mouseDown)
               // @ts-ignore
-              canvasRef?.current.removeEventListener('mousemove', mouseMove)
+              canvas!.current.removeEventListener('mousemove', mouseMove)
               window.removeEventListener("mouseup", mouseUp)
           }
-      })*/
+      })
     return (
-        <canvas width={window.innerWidth} height={window.innerHeight}></canvas>
+        <canvas id="canvas" width={window.innerWidth} height={window.innerHeight} ref={canvas!} ></canvas>
     )
 }

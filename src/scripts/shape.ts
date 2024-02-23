@@ -1,3 +1,5 @@
+
+// @ts-ignore
 export const  drawLine = (context, x1, y1, x2, y2) => {
     context.beginPath();
     context.strokeStyle = "black";
@@ -8,6 +10,7 @@ export const  drawLine = (context, x1, y1, x2, y2) => {
     context.closePath();
 }
 
+// @ts-ignore
 export const drawRect = (context, x, y, width, height) => {
     context.beginPath();
     context.clearRect(0,0,window.innerWidth,window.innerHeight)
@@ -15,3 +18,6 @@ export const drawRect = (context, x, y, width, height) => {
     context.stroke();
     context.closePath();
 }
+
+
+

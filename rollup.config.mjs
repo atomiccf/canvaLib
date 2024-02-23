@@ -4,6 +4,7 @@ import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 
 import packageJson from "./package.json" assert { type: "json" };
+import react from "react";
 
 export default [
     {
@@ -20,10 +21,12 @@ export default [
                 sourcemap: true,
             },
         ],
+        external: ['react', "react-dom",'react-router-dom','react-hook-form',"react-router"],
         plugins: [
             resolve(),
             commonjs(),
             typescript({ tsconfig: "./tsconfig.json" }),
+
         ],
     },
     {
@@ -31,4 +34,5 @@ export default [
         output: [{ file: "dist/index.d.ts", format: "esm" }],
         plugins: [dts()],
     },
+
 ];

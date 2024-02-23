@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/atomiccf/canvalib"
   },
-  "version": "0.0.1",
+  "version": "0.0.24",
   "description": "",
   "type": "commonjs",
   "scripts": {
@@ -12,11 +12,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "react": "^18.2.0",
+    "tslib": "^2.6.2",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/react": "^18.2.57",
-    "react": "^18.2.0",
     "rollup": "^4.12.0",
     "rollup-plugin-dts": "^6.1.0",
     "typescript": "^5.3.3"
@@ -27,7 +28,9 @@
     "dist"
   ],
   "types": "dist/index.d.ts",
-  "dependencies": {
-    "tslib": "^2.6.2"
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-hook-form": "^7.50.1",
+    "react-router-dom": "^6.22.1"
   }
 }
