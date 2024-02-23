@@ -37,6 +37,7 @@ export const Canvas = () => {
           setY(canvasX);
       }
 
+
       // @ts-ignore
       const mouseUp = (e) => {
           if (!isDrawing) return;

@@ -1,6 +1,7 @@
 
 // @ts-ignore
 export const  drawLine = (context, x1, y1, x2, y2) => {
+
     context.beginPath();
     context.strokeStyle = "black";
     context.lineWidth = 1;
