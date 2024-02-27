@@ -12,14 +12,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "react": "^18.2.0",
-    "tslib": "^2.6.2",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/react": "^18.2.57",
+    "react": "^18.2.0",
     "rollup": "^4.12.0",
     "rollup-plugin-dts": "^6.1.0",
+    "tslib": "^2.6.2",
     "typescript": "^5.3.3"
   },
   "main": "dist/cjs/index.js",
@@ -30,13 +30,11 @@
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/atomiccf/canvaLib.git",
-    "directory": "/src/components"
+    "url": "git+https://github.com/atomiccf/canvaLib.git"
   },
   "peerDependencies": {
     "react": "^18.2.0",
     "react-hook-form": "^7.50.1",
     "react-router-dom": "^6.22.1"
   }
-
 }
