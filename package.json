@@ -28,6 +28,10 @@
     "dist"
   ],
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atomiccf/canvaLib.git"
+  },
   "peerDependencies": {
     "react": "^18.2.0",
     "react-hook-form": "^7.50.1",

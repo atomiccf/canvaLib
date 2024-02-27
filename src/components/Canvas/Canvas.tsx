@@ -3,6 +3,7 @@ import {drawRect} from '../../scripts/shape'
 import React from "react";
 
 export const Canvas = () => {
+      const root = document.getElementById('root')
       const canvas = useRef<HTMLCanvasElement>(null)
 
       const [isDrawing, setIsDrawing] = useState(false)
@@ -60,6 +61,6 @@ export const Canvas = () => {
           }
       })
     return (
-        <canvas id="canvas" width={window.innerWidth} height={window.innerHeight} ref={canvas!} ></canvas>
+        <canvas id="canvas" width={root!.offsetWidth} height={root!.offsetHeight} ref={canvas!} ></canvas>
     )
 }
