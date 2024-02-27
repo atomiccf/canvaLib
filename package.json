@@ -30,7 +30,8 @@
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/atomiccf/canvaLib.git"
+    "url": "https://github.com/atomiccf/canvaLib.git",
+    "directory": "src/"
   },
   "peerDependencies": {
     "react": "^18.2.0",
