@@ -1,5 +1,6 @@
 import {useLayoutEffect, useRef, useState} from "react";
 import {drawRect} from '../../scripts/shape'
+// @ts-ignore
 import React from "react";
 
 export const Canvas = () => {
