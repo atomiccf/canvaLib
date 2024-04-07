@@ -10,7 +10,7 @@ export const Canvas = () => {
       const [isDrawing, setIsDrawing] = useState(false)
       const [x, setX] = useState<number>(0)
       const [y, setY] = useState<number>(0)
-    console.log(tab)
+
     useLayoutEffect(() => {
         const context = canvas.current!.getContext('2d')
         const canvasOffset = canvas.current!.getBoundingClientRect();
@@ -38,7 +38,7 @@ export const Canvas = () => {
           setX(canvasX);
           setY(canvasX);
       }
-
+        console.log(tab)
 
       // @ts-ignore
       const mouseUp = (e) => {
