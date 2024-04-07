@@ -4,7 +4,7 @@ import {drawRect} from '../../scripts/shape'
 import React from "react";
 
 export const Canvas = () => {
-      const tab = document.getElementById('tabs')
+      const tab = document.getElementById('wrapper')
       const canvas = useRef<HTMLCanvasElement>(null)
 
       const [isDrawing, setIsDrawing] = useState(false)
@@ -62,6 +62,6 @@ export const Canvas = () => {
           }
       })
     return (
-        <canvas id="canvas"  ref={canvas!} ></canvas>
+        <canvas id="canvas" width={tab!.offsetWidth} height={tab!.offsetHeight}  ref={canvas!} ></canvas>
     )
 }
