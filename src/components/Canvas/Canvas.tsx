@@ -62,6 +62,6 @@ export const Canvas = () => {
           }
       })
     return (
-        <canvas id="canvas" width={tab!.offsetWidth} height={tab!.offsetHeight} ref={canvas!} ></canvas>
+        <canvas id="canvas"  ref={canvas!} ></canvas>
     )
 }
