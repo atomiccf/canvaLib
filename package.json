@@ -1,8 +1,5 @@
 {
   "name": "@atomiccf/canvalib",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/atomiccf/canvalib"
-  },
   "version": "0.0.24",
   "description": "",
   "type": "commonjs",

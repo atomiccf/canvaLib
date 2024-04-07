@@ -62,6 +62,6 @@ export const Canvas = () => {
           }
       })
     return (
-        <canvas id="canvas" width={root!.offsetWidth} height={root!.offsetHeight} ref={canvas!} ></canvas>
+        <canvas id="canvas" width={'100%'} height={'100%'} ref={canvas!} ></canvas>
     )
 }
