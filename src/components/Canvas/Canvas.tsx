@@ -79,6 +79,6 @@ export const Canvas:React.FC<CanvasProps> = ({image}) => {
     console.log(tabWidth)
 
     return (
-        <canvas id="canvas" width={tabWidth} height="300px" ref={canvas!}></canvas>
+        <canvas id="canvas" width={tabWidth} height={tabHeight} ref={canvas!}></canvas>
     )
 }
