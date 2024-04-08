@@ -1,23 +1,26 @@
-import {useEffect, useLayoutEffect, useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {drawRect} from '../../scripts/shape'
 // @ts-ignore
 import React from "react";
 
 export const Canvas = () => {
-
-      const canvasRef = useRef<HTMLCanvasElement | null>(null)
+      const tab = document.getElementById('wrapper')
+      const canvas = useRef<HTMLCanvasElement>(null)
 
 
       const [isDrawing, setIsDrawing] = useState(false)
       const [x, setX] = useState<number>(0)
       const [y, setY] = useState<number>(0)
 
-
     useEffect(() => {
-        const context = canvasRef.current!.getContext('2d')
-        const canvasOffset = canvasRef.current!.getBoundingClientRect();
-        const canvasX = Math.round(canvasOffset?.left); // Subtract the 'left' of the canvas
+        const context = canvas.current!.getContext('2d')
+        const canvasOffset = canvas.current!.getBoundingClientRect();
+        const parent  = canvas.current!.parentNode;
 
+        const canvasX = Math.round(canvasOffset?.left); // Subtract the 'left' of the canvas
+        if (parent instanceof HTMLElement) {
+            console.log(parent)
+        }
       // @ts-ignore
       const mouseDown = (e) => {
           const canvasX = Math.round(e.clientX - canvasOffset?.left); // Subtract the 'left' of the canvas
@@ -40,6 +43,7 @@ export const Canvas = () => {
           setX(canvasX);
           setY(canvasX);
       }
+        console.log(tab)
 
       // @ts-ignore
       const mouseUp = (e) => {
@@ -60,8 +64,7 @@ export const Canvas = () => {
               window.removeEventListener("mouseup", mouseUp)
           }
       })
-
     return (
-        <canvas id="canvas" ref={canvasRef!} ></canvas>
+        <canvas id="canvas" width={tab!.offsetWidth} height={tab!.offsetHeight} ref={canvas!}></canvas>
     )
 }
