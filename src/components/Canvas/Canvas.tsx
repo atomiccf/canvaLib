@@ -2,6 +2,7 @@ import {useEffect, useRef, useState} from "react";
 import {drawLine, drawRect} from '../../scripts/shape'
 // @ts-ignore
 import React from "react";
+import {getLogFilter} from "rollup/dist/getLogFilter";
 type CanvasProps = {
     image: string ;
 }
@@ -71,6 +72,7 @@ export const Canvas:React.FC<CanvasProps> = ({image}) => {
             window.removeEventListener("mouseup", mouseUp)
         }
     })
+    console.log(tab?.offsetWidth)
 
     return (
         <canvas id="canvas" width={tab?.offsetWidth} height="300px" ref={canvas!}></canvas>
