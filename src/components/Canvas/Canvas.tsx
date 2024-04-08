@@ -46,9 +46,7 @@ export const Canvas = () => {
           setIsDrawing(false);
       }
 
-
-
-          // @ts-ignore
+         // @ts-ignore
         canvas!.current.addEventListener('mousedown', mouseDown);
           // @ts-ignore
         canvas!.current.addEventListener('mousemove', mouseMove);
