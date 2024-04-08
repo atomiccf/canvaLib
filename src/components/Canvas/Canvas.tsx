@@ -10,12 +10,15 @@ export const Canvas:React.FC<CanvasProps> = ({image}) => {
     const canvas = useRef<HTMLCanvasElement>(null)
     const [isDrawing, setIsDrawing] = useState(false)
     const [tabWidth, setTabWidth] = useState(0);
+    const [tabHeight, setTabHeight] = useState(0);
     const [x, setX] = useState<number>(0)
     const [y, setY] = useState<number>(0)
 
     useEffect(() => {
         const tab = document.getElementById('tabs');
         setTabWidth(tab!.offsetWidth);
+        setTabHeight(tab!.offsetHeight)
+
     }, []);
 
     useEffect(() => {
@@ -27,7 +30,7 @@ export const Canvas:React.FC<CanvasProps> = ({image}) => {
         const img = new Image();
 
         img.onload = function() {
-            context?.drawImage(img, 0, 0);
+            context?.drawImage(img, 0, 0,tabWidth, tabHeight);
         }
         img.src = `${image}`
 
