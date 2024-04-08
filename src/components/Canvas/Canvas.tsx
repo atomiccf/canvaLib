@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useLayoutEffect, useRef, useState} from "react";
 import {drawRect} from '../../scripts/shape'
 // @ts-ignore
 import React from "react";
@@ -6,15 +6,18 @@ import React from "react";
 export const Canvas = () => {
 
       const canvasRef = useRef<HTMLCanvasElement | null>(null)
-      const canvasNode = canvasRef.current;
-      const parent = canvasNode!.parentNode as HTMLElement;
-      canvasNode!.width = parent.offsetWidth;
-      canvasNode!.height = parent.offsetHeight;
+
 
       const [isDrawing, setIsDrawing] = useState(false)
       const [x, setX] = useState<number>(0)
       const [y, setY] = useState<number>(0)
 
+    useLayoutEffect(() => {
+        const canvasNode = canvasRef.current;
+        const parent = canvasNode!.parentNode as HTMLElement;
+        canvasNode!.width = parent.offsetWidth;
+        canvasNode!.height = parent.offsetHeight;
+    }, []);
     useEffect(() => {
         const context = canvasRef.current!.getContext('2d')
         const canvasOffset = canvasRef.current!.getBoundingClientRect();
