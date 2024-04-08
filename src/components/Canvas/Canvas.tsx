@@ -12,14 +12,7 @@ export const Canvas = () => {
       const [x, setX] = useState<number>(0)
       const [y, setY] = useState<number>(0)
 
-    useEffect(() => {
-        const canvasNode = canvasRef.current;
-        const parent = canvasNode!.parentNode as HTMLElement;
-        if (canvasNode && parent instanceof HTMLElement) {
-            canvasNode!.width = parent.offsetWidth;
-            canvasNode!.height = parent.offsetHeight;
-        }
-    }, []);
+
     useEffect(() => {
         const context = canvasRef.current!.getContext('2d')
         const canvasOffset = canvasRef.current!.getBoundingClientRect();
