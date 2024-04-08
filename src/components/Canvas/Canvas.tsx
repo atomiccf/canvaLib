@@ -2,25 +2,35 @@ import {useEffect, useRef, useState} from "react";
 import {drawRect} from '../../scripts/shape'
 // @ts-ignore
 import React from "react";
+type CanvasProps = {
+    image: string ;
+}
 
-export const Canvas = () => {
+export const Canvas:React.FC<CanvasProps> = ({image}) => {
 
     const canvas = useRef<HTMLCanvasElement>(null)
-
-
     const [isDrawing, setIsDrawing] = useState(false)
     const [x, setX] = useState<number>(0)
     const [y, setY] = useState<number>(0)
     const tab = document.getElementById('tabs')
+
+
+
     useEffect(() => {
 
         const context = canvas.current!.getContext('2d')
         const canvasOffset = canvas.current!.getBoundingClientRect();
 
         const canvasX = Math.round(canvasOffset?.left); // Subtract the 'left' of the canvas
+        const img = new Image();
 
-        // @ts-ignore
-        const mouseDown = (e) => {
+        img.onload = function() {
+            context?.drawImage(img, 0, 0);
+        }
+        img.src = `${image}`
+
+
+        const mouseDown = (e: MouseEvent) => {
             const canvasX = Math.round(e.clientX - canvasOffset?.left); // Subtract the 'left' of the canvas
             const canvasY = Math.round(e.clientY - canvasOffset?.top);
 
@@ -29,8 +39,7 @@ export const Canvas = () => {
             setIsDrawing(true);
         }
 
-        // @ts-ignore
-        const mouseMove = (e) => {
+        const mouseMove = (e: MouseEvent) => {
             if (!isDrawing) return;
             const newX = Math.round(e.clientX - canvasOffset?.left); // Subtract the 'left' of the canvas
             const newY = Math.round(e.clientY - canvasOffset?.top);
@@ -41,7 +50,7 @@ export const Canvas = () => {
             setX(canvasX);
             setY(canvasX);
         }
-        // @ts-ignore
+
         const mouseUp = () => {
             if (!isDrawing) return;
             setIsDrawing(false);
@@ -54,7 +63,7 @@ export const Canvas = () => {
         }
         window.addEventListener("mouseup", mouseUp);
         return () => {
-            // @ts-ignore
+
             if (canvas && canvas.current) {
                 canvas.current.removeEventListener('mousedown', mouseDown);
                 canvas.current.removeEventListener('mousemove', mouseMove);
