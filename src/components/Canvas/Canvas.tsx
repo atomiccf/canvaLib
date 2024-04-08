@@ -2,7 +2,7 @@ import {useEffect, useRef, useState} from "react";
 import {drawLine} from '../../scripts/shape'
 import React from "react";
 type CanvasProps = {
-    image: string ;
+    image?: string ;
 }
 
 export const Canvas:React.FC<CanvasProps> = ({image}) => {
@@ -52,8 +52,8 @@ export const Canvas:React.FC<CanvasProps> = ({image}) => {
             const height = newY - y
             drawLine(context, x, y, width, height)
 
-            setX(newX);
-            setY(newY);
+            setX(canvasX);
+            setY(canvasX);
         }
 
         const mouseUp = () => {
