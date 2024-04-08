@@ -12,7 +12,7 @@ export const Canvas = () => {
       const [x, setX] = useState<number>(0)
       const [y, setY] = useState<number>(0)
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         const canvasNode = canvasRef.current;
         const parent = canvasNode!.parentNode as HTMLElement;
         if (canvasNode && parent instanceof HTMLElement) {
