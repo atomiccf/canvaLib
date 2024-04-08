@@ -11,17 +11,15 @@ export const Canvas = () => {
       const [isDrawing, setIsDrawing] = useState(false)
       const [x, setX] = useState<number>(0)
       const [y, setY] = useState<number>(0)
-
+      const tab = document.getElementById('view_tabs')
     useEffect(() => {
-        const tab = document.getElementById('view_tabs')
+
         const context = canvas.current!.getContext('2d')
         const canvasOffset = canvas.current!.getBoundingClientRect();
         const parent  = canvas.current!.parentNode;
 
         const canvasX = Math.round(canvasOffset?.left); // Subtract the 'left' of the canvas
-        if (parent instanceof HTMLElement) {
-            console.log(parent)
-        }
+
       // @ts-ignore
       const mouseDown = (e) => {
           const canvasX = Math.round(e.clientX - canvasOffset?.left); // Subtract the 'left' of the canvas
@@ -44,7 +42,7 @@ export const Canvas = () => {
           setX(canvasX);
           setY(canvasX);
       }
-        console.log(tab)
+
 
       // @ts-ignore
       const mouseUp = (e) => {
@@ -65,7 +63,8 @@ export const Canvas = () => {
               window.removeEventListener("mouseup", mouseUp)
           }
       })
+    console.log(tab)
     return (
-        <canvas id="canvas" ref={canvas!}></canvas>
+        <canvas id="canvas" width={tab?.offsetWidth} height={tab?.offsetHeight} ref={canvas!}></canvas>
     )
 }
