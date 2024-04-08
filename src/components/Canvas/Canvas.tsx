@@ -52,8 +52,8 @@ export const Canvas:React.FC<CanvasProps> = ({image}) => {
             const height = newY - y
             drawLine(context, x, y, width, height)
 
-            setX(canvasX);
-            setY(canvasX);
+            setX(newX);
+            setY(newY);
         }
 
         const mouseUp = () => {
@@ -79,6 +79,6 @@ export const Canvas:React.FC<CanvasProps> = ({image}) => {
     console.log(tabWidth)
 
     return (
-        <canvas id="canvas" width={tabWidth} height={tabHeight} ref={canvas!}></canvas>
+        <canvas id="canvas" width={tabWidth} height={tabHeight - 96} ref={canvas!}></canvas>
     )
 }
