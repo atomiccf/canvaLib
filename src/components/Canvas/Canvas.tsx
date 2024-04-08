@@ -16,7 +16,6 @@ export const Canvas = () => {
 
         const context = canvas.current!.getContext('2d')
         const canvasOffset = canvas.current!.getBoundingClientRect();
-        const parent  = canvas.current!.parentNode;
 
         const canvasX = Math.round(canvasOffset?.left); // Subtract the 'left' of the canvas
 
@@ -42,29 +41,27 @@ export const Canvas = () => {
           setX(canvasX);
           setY(canvasX);
       }
-
-
       // @ts-ignore
-      const mouseUp = (e) => {
+      const mouseUp = () => {
           if (!isDrawing) return;
           setIsDrawing(false);
       }
 
          // @ts-ignore
-        canvas!.current.addEventListener('mousedown', mouseDown);
+        canvas?.current.addEventListener('mousedown', mouseDown);
           // @ts-ignore
-        canvas!.current.addEventListener('mousemove', mouseMove);
+        canvas?.current.addEventListener('mousemove', mouseMove);
           window.addEventListener("mouseup", mouseUp);
           return () => {
               // @ts-ignore
-              canvas!.current.removeEventListener('mousedown', mouseDown)
+              canvas?.current.removeEventListener('mousedown', mouseDown)
               // @ts-ignore
-              canvas!.current.removeEventListener('mousemove', mouseMove)
+              canvas?.current.removeEventListener('mousemove', mouseMove)
               window.removeEventListener("mouseup", mouseUp)
           }
       })
-    console.log(tab)
+
     return (
-        <canvas id="canvas" width={tab?.offsetWidth} height={tab?.offsetHeight} ref={canvas!}></canvas>
+        <canvas id="canvas" width={tab?.offsetWidth} height="300px" ref={canvas!}></canvas>
     )
 }
