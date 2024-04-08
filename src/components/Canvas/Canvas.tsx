@@ -45,15 +45,15 @@ export const Canvas:React.FC<CanvasProps> = ({image}) => {
         }
 
         const mouseMove = (e: MouseEvent) => {
-            if (!isDrawing) return;
-            const newX = Math.round(e.clientX - canvasOffset?.left); // Subtract the 'left' of the canvas
-            const newY = Math.round(e.clientY - canvasOffset?.top);
-            const width = newX - x
-            const height = newY - y
-            drawLine(context, x, y, width, height)
+                if (!isDrawing) return;
+                const newX = Math.round(e.clientX - canvasOffset?.left); // Subtract the 'left' of the canvas
+                const newY = Math.round(e.clientY - canvasOffset?.top);
+                const width = newX - x
+                const height = newY - y
+                drawLine(context, x, y, width, height)
 
-            setX(canvasX);
-            setY(canvasX);
+                setX(newX);
+                setY(newY);
         }
 
         const mouseUp = () => {
