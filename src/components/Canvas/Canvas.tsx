@@ -48,11 +48,7 @@ export const Canvas:React.FC<CanvasProps> = ({image}) => {
                 if (!isDrawing) return;
                 const newX = Math.round(e.clientX - canvasOffset?.left); // Subtract the 'left' of the canvas
                 const newY = Math.round(e.clientY - canvasOffset?.top);
-
                 drawLine(context, x, y, newX - x, newY - y);
-
-                setX(newX);
-                setY(newY);
         }
 
         const mouseUp = () => {
