@@ -1,5 +1,5 @@
 import {useEffect, useRef, useState} from "react";
-import {drawRect} from '../../scripts/shape'
+import {drawLine, drawRect} from '../../scripts/shape'
 // @ts-ignore
 import React from "react";
 type CanvasProps = {
@@ -45,7 +45,7 @@ export const Canvas:React.FC<CanvasProps> = ({image}) => {
             const newY = Math.round(e.clientY - canvasOffset?.top);
             const width = newX - x
             const height = newY - y
-            drawRect(context, x, y, width, height)
+            drawLine(context, x, y, width, height)
 
             setX(canvasX);
             setY(canvasX);
