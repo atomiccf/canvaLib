@@ -15,8 +15,8 @@ export const Canvas = () => {
     useLayoutEffect(() => {
         const canvasNode = canvasRef.current;
         const parent = canvasNode!.parentNode as HTMLElement;
-        canvasNode!.width = parent.offsetWidth;
-        canvasNode!.height = parent.offsetHeight;
+        canvasNode!.width = parent.clientWidth;
+        canvasNode!.height = parent.clientHeight;
     }, []);
     useEffect(() => {
         const context = canvasRef.current!.getContext('2d')
