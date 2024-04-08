@@ -25,8 +25,6 @@ export const Canvas = () => {
     useEffect(() => {
         const context = canvasRef.current!.getContext('2d')
         const canvasOffset = canvasRef.current!.getBoundingClientRect();
-        const parent  = canvasRef.current!.parentNode as HTMLElement;
-
         const canvasX = Math.round(canvasOffset?.left); // Subtract the 'left' of the canvas
 
       // @ts-ignore
