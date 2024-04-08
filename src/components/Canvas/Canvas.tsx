@@ -1,8 +1,6 @@
 import {useEffect, useRef, useState} from "react";
-import {drawLine, drawRect} from '../../scripts/shape'
-// @ts-ignore
+import {drawLine} from '../../scripts/shape'
 import React from "react";
-import {getLogFilter} from "rollup/dist/getLogFilter";
 type CanvasProps = {
     image: string ;
 }
@@ -11,11 +9,14 @@ export const Canvas:React.FC<CanvasProps> = ({image}) => {
 
     const canvas = useRef<HTMLCanvasElement>(null)
     const [isDrawing, setIsDrawing] = useState(false)
+    const [tabWidth, setTabWidth] = useState(0);
     const [x, setX] = useState<number>(0)
     const [y, setY] = useState<number>(0)
-    const tab = document.getElementById('tabs')
 
-
+    useEffect(() => {
+        const tab = document.getElementById('tabs');
+        setTabWidth(tab!.offsetWidth);
+    }, []);
 
     useEffect(() => {
 
@@ -72,9 +73,9 @@ export const Canvas:React.FC<CanvasProps> = ({image}) => {
             window.removeEventListener("mouseup", mouseUp)
         }
     })
-    console.log(tab?.offsetWidth)
+    console.log(tabWidth)
 
     return (
-        <canvas id="canvas" width={tab?.offsetWidth} height="300px" ref={canvas!}></canvas>
+        <canvas id="canvas" width={tabWidth} height="300px" ref={canvas!}></canvas>
     )
 }
