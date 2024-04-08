@@ -11,7 +11,7 @@ export const Canvas = () => {
       const [isDrawing, setIsDrawing] = useState(false)
       const [x, setX] = useState<number>(0)
       const [y, setY] = useState<number>(0)
-      const tab = document.getElementById('view_tabs')
+      const tab = document.getElementById('tabs')
     useEffect(() => {
 
         const context = canvas.current!.getContext('2d')
