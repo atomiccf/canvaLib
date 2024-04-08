@@ -4,7 +4,7 @@ import {drawRect} from '../../scripts/shape'
 import React from "react";
 
 export const Canvas = () => {
-      const tab = document.getElementById('wrapper')
+      const tab = document.getElementById('view_tabs')
       const canvas = useRef<HTMLCanvasElement>(null)
 
 
