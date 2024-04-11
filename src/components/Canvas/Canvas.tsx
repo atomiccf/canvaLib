@@ -30,7 +30,7 @@ export const Canvas:React.FC<CanvasProps> = ({image}) => {
         const img = new Image();
 
         img.onload = function() {
-            context?.drawImage(img, 0, 0,tabWidth, tabHeight);
+            context?.drawImage(img, 0, 0,640, 640);
         }
         img.src = `${image}`
 
